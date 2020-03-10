@@ -1,58 +1,74 @@
 import React, { Component } from 'react';
-
+/*
 type CounterState = {
   count: number,
 }
 
 type CounterProps = {
-  title?: string,
+  title?: string, 
 }
 
 class Counter extends Component<CounterProps, CounterState> {
-  constructor(props: CounterProps) {
-    super(props)
-
-    this.state = {
-      count: 0,
-    }
+  state = {
+    count: 0,
   }
 
-  static defaultProps: CounterProps = {
-    title: "Default counter: ",
-  }
-
-  static getDerivedStateFromProps(props: CounterProps, state: CounterState): CounterState | null {
-    return false ? { count: 2 } : null;
-  }
-
-  componentDidMount():void {
-
-  }
-
-  shouldComponentUpdate(nextProps: CounterProps, nextState: CounterState): boolean {
-    return true;
-  }
-
-  handleClick = () => {
+  handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+    console.log(`${e.clientX}, ${e.clientY}`);
     this.setState(({ count }) => ({
       count: ++count,
     }));
-
-    // this.state.count = ++count; <-- Never do this
   }
 
   render() {
-    // this.props.title = ''; <-- And this...
-
     return (
       <div>
         <h1>{this.props.title}{this.state.count}</h1>
         <button onClick={this.handleClick}>+1</button>
+        <a href="#" onClick={this.handleClick}>Link</a>
       </div>
     );
   }
 }
+*/
 
-const App = () => <Counter title="Counter: " />
+class Form extends Component<{}, {}> {
+
+  handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    console.log(e.currentTarget);
+  }
+
+  handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Submitted!');
+  }
+
+  handleCopy = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    console.log('Coppied!');
+  }
+
+  render() {
+    return (
+      <form
+        onSubmit={this.handleSubmit}
+      >
+        <label>
+          Simple text:
+          <input
+            onFocus={this.handleFocus}
+            onCopy={this.handleCopy}
+            type="text"
+            name="text"
+          />
+          <button
+            type="submit"
+          >Submit</button>
+        </label>
+      </form>
+    );
+  }
+}
+
+const App:React.FC = () => <Form />;
 
 export default App;
