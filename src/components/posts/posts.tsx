@@ -22,7 +22,7 @@ class Posts extends Component<IPosts, PostState> {
 
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/posts/')
-      .then(res => res.json())
+      .then(res => res.json() as Promise<IPost[]>)
       .then(data => { this.setState({ data }) })
   }
 
