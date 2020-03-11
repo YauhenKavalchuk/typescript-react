@@ -1,133 +1,115 @@
 import React, { Component } from 'react';
-
-type Position = {
-  id: string,
-  value: string,
-  title: string,
+import ReactDOM from 'react-dom';
+/*
+type PortalProps = {
+  children: React.ReactNode,
 }
 
-type FormState = {
-  inputText: string,
-    textareaText: string,
-    selectText: string,
-    showData: {
-      name: string,
-      text: string,
-      position: string,
-    }
-}
+class Portal extends Component<PortalProps> {
 
-const POSITIONS: Array<Position> = [
-  {
-    id: 'fd',
-    value: 'Front-end Developer',
-    title: 'Front-end Developer',
-  },
-  {
-    id: 'bd',
-    value: 'Back-end Developer',
-    title: 'Back-end Developer',
+  private el: HTMLDivElement = document.createElement('div');
+
+  public componentDidMount():void {
+    document.body.appendChild(this.el);
   }
-];
 
-const DEFAULT_SELECT_VALUE:string = POSITIONS[0].value;
-const styles: React.CSSProperties = { display: 'block', marginBottom: '10px' };
+  public componentWillUnmount():void {
+    document.body.removeChild(this.el);
+  }
 
-class Form extends Component<{}, FormState> {
-  
+  public render(): React.ReactElement<PortalProps> {
+    return ReactDOM.createPortal(this.props.children, this.el);
+  }
+}
+
+class MyComponent extends Component<{}, { count: number }> {
   state = {
-    inputText: '',
-    textareaText: '',
-    selectText: DEFAULT_SELECT_VALUE,
-    showData: {
-      name: '',
-      text: '',
-      position: '',
-    }
+    count: 0,
   }
 
-  private rootRef = React.createRef<HTMLSelectElement>();
-
-  handleInputChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
-    const { target: { value: inputText } } = e;
-    this.setState({ inputText });
-  };
-
-  handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>):void => {
-    const { target: { value: textareaText } } = e;
-    this.setState({ textareaText });
-  };
-
-  handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>):void => {
-    const { target: { value: selectText } } = e;
-    this.setState({ selectText });
-  };
-
-  handleShow = (e: React.MouseEvent<HTMLButtonElement>):void => {
-    e.preventDefault();
-    const { inputText, textareaText, selectText } = this.state;
-
-    this.setState({
-      inputText: '',
-      textareaText: '',
-      selectText: DEFAULT_SELECT_VALUE,
-      showData: {
-        name: inputText,
-        text: textareaText,
-        position: selectText,
-      }
-    })
-  };
+  handleClick = () => {
+    this.setState(({ count }) => ({
+      count: ++count,
+    }));
+  }
 
   render() {
-    const { inputText, textareaText, selectText, showData } = this.state;
-    const { name, text, position } = showData;
+    return (
+      <div onClick={this.handleClick}>
+        <h1>Clicks: {this.state.count}</h1>
+        <Portal>
+          <h2>TEST PORTAL</h2>
+          <button>Click</button>
+        </Portal>
+      </div>
+    );
+  }
+}
+*/
+
+interface IContext {
+  isAuth: Boolean,
+  toggleAuth: () => void,
+}
+
+// Context creation
+const AuthContext = React.createContext<IContext>({
+  isAuth: false,
+  toggleAuth: () => {},
+});
+
+// Inner component (new syntax of static property)
+class Login extends Component {
+
+  static contextType = AuthContext;
+  context!: React.ContextType<typeof AuthContext>
+
+  render() {
+    const { toggleAuth, isAuth } = this.context;
 
     return (
-      <>
-        <form>
-          <label style={styles}>
-            Name:
-            <input
-              type="text"
-              value={inputText}
-              onChange={this.handleInputChange}
-            />
-          </label>
-
-          <label style={styles}>
-            Text:
-            <textarea
-              value={textareaText}
-              onChange={this.handleTextareaChange}
-            />
-          </label>
-
-          <select
-            style={styles}
-            value={selectText}
-            onChange={this.handleSelectChange}
-            ref={this.rootRef}
-          >
-            {POSITIONS.map(({ id, value, title }) => (
-              <option
-                key={id}
-                value={value}
-              >{title}</option>
-            ))}
-          </select>
-
-          <button onClick={this.handleShow}>Show Data</button>
-        </form>
-
-        <h2>{name}</h2>
-        <h3>{text}</h3>
-        <h3>{position}</h3>
-      </>
+      <button onClick={toggleAuth}>
+        {!isAuth ? 'Login' : 'Logout'}
+      </button>
     );
   }
 }
 
-const App:React.FC = () => <Form />;
+// Inner component (old variant with Consumer)
+const Profile: React.FC = (): React.ReactElement => (
+  <AuthContext.Consumer>
+    {({ isAuth }: IContext) => (
+      <h1>{!isAuth ? 'Please log in' : 'You are logged in'}</h1>
+    )}
+  </AuthContext.Consumer>
+);
+
+// Root component
+class Context extends Component<{}, { isAuth: Boolean }> {
+  readonly state = {
+    isAuth: false,
+  };
+
+  toggleAuth = () => {
+    this.setState(({ isAuth }) => ({
+      isAuth: !isAuth
+    }));
+  };
+
+  render() {
+    const { isAuth } = this.state;
+    const context: IContext = { isAuth, toggleAuth: this.toggleAuth };
+
+    return (
+      <AuthContext.Provider value={context}>
+        <Login />
+        <Profile />
+      </AuthContext.Provider>
+    );
+  }
+}
+
+
+const App:React.FC = () => <Context />;
 
 export default App;
