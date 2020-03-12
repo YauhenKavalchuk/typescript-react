@@ -5,3 +5,4 @@ import filters from './filters';
 const rootReducer = combineReducers({ tasks, filters });
 
 export default rootReducer;
+export type RootState = ReturnType<typeof rootReducer>;
