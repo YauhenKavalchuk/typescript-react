@@ -32,19 +32,19 @@
 - Запустите проект: `yarn start`
 
 ## Список уроков:
-- TypeScript & React #0 Введение (Introduction)
-- TypeScript & React #1 Установка окружения (Setup Environment)
-- TypeScript & React #2 Типизация функциональных компонентов (Typing of Functional Components)
-- TypeScript & React #3 Типизация классовых компоненты (Typing of Class Components)
-- TypeScript & React #4 Типизация событий (Typing of Events)
-- TypeScript & React #5 Типизация элементов (Typing of Elements)
-- TypeScript & React #6 Типизация контекста и портала (Typing of Context & Portal)
-- TypeScript & React #7 Типизация Хуков (Typing of Hooks)
-- TypeScript & React #8 Типизация ХОК-ов (Typing of HOCs)
-- TypeScript & React #9 Типизация Роутера (Typing of React Router)
-- TypeScript & React #10 Типизация асинхронных функций (Typing of Fetch with Async & Await)
-- TypeScript & React #11 Типизация Редакса (Typing of Redux. Part I)
-- TypeScript & React #12 Типизация Редакса (Typing of Redux. Part II)
+- #0 Введение (Introduction)
+- #1 Установка окружения (Setup Environment)
+- #2 Типизация функциональных компонентов (Typing of Functional Components)
+- #3 Типизация классовых компоненты (Typing of Class Components)
+- #4 Типизация событий (Typing of Events)
+- #5 Типизация элементов (Typing of Elements)
+- #6 Типизация контекста и портала (Typing of Context & Portal)
+- #7 Типизация Хуков (Typing of Hooks)
+- #8 Типизация ХОК-ов (Typing of HOCs)
+- #9 Типизация Роутера (Typing of React Router)
+- #10 Типизация асинхронных функций (Typing of Fetch with Async & Await)
+- #11 Типизация Редакса (Typing of Redux. Part I)
+- #12 Типизация Редакса (Typing of Redux. Part II)
 
 ## Автор курса в социальных сетях:
 Social network | Link to Profile
