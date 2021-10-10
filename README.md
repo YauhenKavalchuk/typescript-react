@@ -3,14 +3,20 @@
 ### Описание курса:
 В данном видеокурсе мы с вами рассмотрим связку библиотеки React и синтаксиса TypeScript. Из библиотеки мы разберём типизацию функциональных и классовых компонентов, событий и элементов, методов жизненного цикла, контекста и портала и конечно же хуки. А в дополнение рассмотрим типизацию React-роутера и Redux.
 
-## Используемые ресурсы и инструменты:
+### Поддержать развитие канала:
+[<img alt="webDev | YouTube Sponsor" src="https://img.shields.io/badge/Become a sponsor-F70000.svg?&style=for-the-badge&logo=youtube&logoColor=fff" />][sponsor]
+[<img alt="webDev | Patreon" src="https://img.shields.io/badge/Become a patron-EF6451.svg?&style=for-the-badge&logo=patreon&logoColor=fff" />][patron]
+
+---
+
+### Используемые ресурсы и инструменты:
 - [Visual Studio Code (редактор кода)](https://code.visualstudio.com)
 - [Create React App (рабочее окружение)](https://github.com/facebook/create-react-app)
 - [Redux Devtools (расширение для браузера)](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ru)
 - [Fake online REST API](https://jsonplaceholder.typicode.com/)
 - [Redux-LocalStorage-Simple](https://www.npmjs.com/package/redux-localstorage-simple)
 
-## Полезные ссылки:
+### Полезные ссылки:
 - [Description "tsconfig.json"](https://gist.github.com/YauhenKavalchuk/69054ba65e7863226e531b74cb33f060)
 - [React Context](https://youtu.be/W_-TO_reSGs)
 - [React Portal](https://youtu.be/xcWaYD4gZAs)
@@ -19,19 +25,26 @@
 - [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter)
 - [React Static Type Checking](https://reactjs.org/docs/static-type-checking.html)
 
-## Opened Issues:
+### Issues:
 - [React.FC doesn't allow bare return of children](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/33006)
 - [FunctionComponent and ComponentClass are not compatible with LibraryManagedAttributes](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet/issues/87)
 - [HOC returned component props can not differ from HOC generic props](https://github.com/Microsoft/TypeScript/issues/28938#issuecomment-450636046)
 
-## Быстрый старт
+---
+
+### Быстрый старт:
 - Клонируйте репозиторий: `git clone https://github.com/YauhenKavalchuk/typescript-react.git`
 - Перейдите в папку с проектом `cd typescript-react`
+- Перейдите в нужную ветку соответствующую уроку:
+  - `git checkout lesson_01`
+  - `git checkout lesson_02`
+  - `git checkout lesson_10` и т.д.
 - Установите зависимости: `yarn install`
-- Перейдите в нужную ветку соответствующую уроку: `git checkout lesson_01`, `git checkout lesson_02` и т.д.
 - Запустите проект: `yarn start`
 
-## Список уроков:
+---
+
+### Список уроков:
 - [#0 Введение (Introduction)](https://youtu.be/acO37eSCowc)
 - [#1 Установка окружения (Setup Environment)](https://youtu.be/VDJcfJ1j7Bs)
 - [#2 Типизация функциональных компонентов (Typing of Functional Components)](https://youtu.be/yc5acYhDM48)
@@ -46,22 +59,19 @@
 - [#11 Типизация Редакса (Typing of Redux. Part I)](https://youtu.be/vFhiS6__ARE)
 - [#12 Типизация Редакса (Typing of Redux. Part II)](https://youtu.be/8wlMmp2M7MI)
 
-## Автор курса в социальных сетях:
+---
 
-[<img align="left" alt="webDev | YouTube" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/youtube.svg" />][youtube]
-[<img align="left" alt="webDev | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
-[<img align="left" alt="webDev | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
-[<img align="left" alt="webDev | VK" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/vk.svg" />][vk]
-[<img align="left" alt="webDev | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]&nbsp;
-
-## Поддержать канал:
-
-<a href="https://www.patreon.com/YauhenKavalchuk" target="_blank">
-  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
+### Связаться со мной:
+[<img alt="webDev | YouTube" src="https://img.shields.io/badge/youtube-FF0000.svg?&style=for-the-badge&logo=Instagram&logoColor=white" />][youtube]
+[<img alt="webDev | Instagram" src="https://img.shields.io/badge/instagram-E4405F.svg?&style=for-the-badge&logo=Instagram&logoColor=white" />][instagram]
+[<img alt="webDev | LinkedIn" src="https://img.shields.io/badge/linkedin-0077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />][linkedin]
+[<img alt="webDev | Twitter" src="https://img.shields.io/badge/twitter-1DA1F2.svg?&style=for-the-badge&logo=Twitter&logoColor=white" />][twitter]
+[<img alt="webDev | VK" src="https://img.shields.io/badge/vk-4680C2.svg?&style=for-the-badge&logo=Twitter&logoColor=white" />][vk]
 
 [youtube]: https://youtube.com/YauhenKavalchuk
 [instagram]: https://instagram.com/YauhenKavalchuk
 [linkedin]: https://linkedin.com/in/YauhenKavalchuk
 [vk]: https://vk.com/YauhenKavalchuk
 [twitter]: https://twitter.com/YauhenKavalchuk
+[sponsor]: https://www.youtube.com/channel/UCE9ODjNIkOHrnSdkYWLfYhg/join
+[patron]: https://www.patreon.com/YauhenKavalchuk
